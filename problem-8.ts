@@ -1,17 +1,15 @@
-interface Valid  {
+interface Valid {
   name: string;
   age: number;
   email: string;
-};
-
-function validateKeys<X>(data: X, value: (keyof X)[]): boolean {
-    const userData = data;
-    const arrayValue = value;
-  const result = arrayValue.every((key) => key in userData);
-  return result
 }
 
+function validateKeys<X extends Valid>(data: X, value: (keyof X)[]): boolean {
+  const userData = data;
+  const userValue = value;
+  const result = userValue.every((key) => key in userData);
+  return result;
+}
 
-
-const person1:Valid = { name: "Alice", age: 25, email: "alice@example.com" };
-console.log(validateKeys(person1, ["name","name"]));
+// const person1 = { name: "Alice", age: 25, email: "alice@example.com" };
+// console.log(validateKeys(person1, ["age"]));

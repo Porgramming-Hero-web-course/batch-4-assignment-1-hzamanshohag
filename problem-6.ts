@@ -1,14 +1,23 @@
-type UserProfile = {
+interface UserProfile {
   name: string;
   age: number;
   email: string;
-};
-const updateProfile = <P, K>(data: P, update: Partial<K>) => {
+}
+function updateProfile(
+  data: UserProfile,
+  update: Partial<UserProfile>
+): UserProfile {
   return { ...data, ...update };
-};
-const myProfile: UserProfile = {
-  name: "Alice",
-  age: 25,
-  email: "alice@example.com",
-};
-console.log(updateProfile(myProfile, { age: 35 }));
+}
+// const myProfile = {
+//   name: "Alice",
+//   age: 26,
+//   email: "alice@example.com",
+// };
+// console.log(
+//   updateProfile(myProfile, {
+//     name: "Shohag",
+//     age: 25,
+//     email: "sk@example.com",
+//   })
+// );

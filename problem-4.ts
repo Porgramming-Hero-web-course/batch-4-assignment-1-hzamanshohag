@@ -1,33 +1,31 @@
-type AreaType = {
+type AreaData = {
   shape: "circle";
   radius: number;
 };
 
-type RectangleType = {
+type RectangleData = {
   shape: "rectangle";
   width: number;
   height: number;
 };
 
-type isValid = AreaType | RectangleType;
-
-function calculateShapeArea(shape: isValid): number {
-  if (shape.shape === "circle") {
-    const result = (Math.PI * shape.radius * shape.radius).toFixed(2);
+function calculateShapeArea(data: AreaData | RectangleData): number {
+  if ("radius" in data) {
+    const result = (Math.PI * data.radius * data.radius).toFixed(2);
     return parseFloat(result);
-  } else if (shape.shape === "rectangle") {
-    const result = shape.width * shape.height;
-    return result
+  } else if ("width" in data && "height" in data) {
+    const result = data.width * data.height;
+    return result;
   }
-  throw new Error("There is an Error. Please Check input");
+  throw new Error("There is an Error. Please Check Input Data");
 }
 
+// const circleArea = calculateShapeArea({ shape: "circle", radius: 5 });
 
-const circlevalue = calculateShapeArea({ shape: "circle", radius: 10});
-console.log(circlevalue);
-const rectangleValue = calculateShapeArea({
-  shape: "rectangle",
-  width: 5,
-  height: 8,
-});
-console.log(rectangleValue);
+// const rectangleArea = calculateShapeArea({
+//   shape: "rectangle",
+//   width: 6,
+//   height: 6,
+// });
+
+// console.log(circleArea, rectangleArea);
