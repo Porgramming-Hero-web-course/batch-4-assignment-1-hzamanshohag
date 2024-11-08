@@ -1,4 +1,3 @@
 ### The significance of union and intersection types in Typescript.
 
-* We can use a type between the two types through union type. As a result of union type complex type work can be done easily. Using union type results in fewer types being written. 
-* When two types can be used together, the middle of the intersection.
+- Union type allows us to use any type between those two types. Because of union type, complex types of work are quite easy. Due to union type, it requires less writing of types. When any two types can be used together, the middle of the intersection can be used. You generally can use union values-for example, assign or test for equality-without knowing the exact type. The intersection type is a way of combining multiple types into one in TypeScript. You can mix several types together to create a new type that contains all the properties of the original types.
